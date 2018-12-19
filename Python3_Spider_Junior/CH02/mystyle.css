@@ -1,0 +1,21 @@
+*      /* ----------------设置所有元素样式----------*/
+		{
+		margin:2;
+		padding:4;
+		border:3;
+		}
+Body   /* ----------------设置<body>元素内样式----------*/
+		{
+		font-family:PingFangSC-Regular, Verdana, Arial, '微软雅黑','宋体';
+		font-size:14px;
+		background-color: brown
+		}
+div#maincontent h2    /* -------设置所有id=“maincontent”的<div>内的<h2>标签样式------*/
+		{
+		font-size: 18px;
+		color:#3f3f3f;
+		}
+p.tip2 {         /* ----------------设置class=“tip2”的<p>标签样式----------*/
+		background: #BBEDB8 top left no-repeat;
+		display:block;
+      }
