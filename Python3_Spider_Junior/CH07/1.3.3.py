@@ -1,6 +1,8 @@
 import re
 import requests
 import io
+import time
+import random
 
 def crawl(start_url):
     req_headers = {
@@ -21,6 +23,7 @@ def crawl(start_url):
     # 遍历所有个人作品页，获取每页的诗作
     for i in range(1, pagecount+1):
         eachpage_url = start_url + 'page=%s&id=%s' % (str(i),id)
+        time.sleep(random.randint(3,6))
         singlepageworks_html = get_html(eachpage_url, req_headers)
         if len(works_html) > 0:
             # 获取每一首诗的内容,并以作者为文件名保存到本地
@@ -64,7 +67,8 @@ def getsingledata(single_html):
 #清洗多余字符
 def washdata(content):
     # 去掉爬取下来的多余标签
-    content = re.sub(r'<br />', '\n', content)
+    content = re.sub(r'<br\s*/>', '\n', content)
+    content = re.sub(r'<br>', '', content)
     content = re.sub(r'<p>', '', content)
     content = re.sub(r'</p>', '', content)
     content = re.sub(r'<span .*?>', '', content)
